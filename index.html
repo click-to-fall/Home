@@ -1,455 +1,1098 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>click_to_fall | Custom Birthday, Anniversary & Wedding Invitation Websites</title>
+  <title>click_to_fall | Custom Birthday, Anniversary, Mother’s Day & Wedding Invitation Websites</title>
 
-<meta name="description" content="click_to_fall creates beautiful custom websites for birthdays, anniversaries, wedding invitations and memories. Turn your special moment into a romantic digital website gift.">
+  <meta name="description" content="click_to_fall creates beautiful custom websites for birthdays, anniversaries, Mother's Day, wedding invitations and memories. Turn your special moment into a digital website gift.">
 
-<meta name="keywords" content="birthday website, anniversary website, wedding invitation website, romantic website gift, custom website for couples">
+  <meta name="keywords" content="birthday website, anniversary website, wedding invitation website, mother's day website, memories website, romantic website gift, custom website for couples">
 
-<meta name="author" content="click_to_fall">
+  <meta name="author" content="click_to_fall">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="icon" type="image/png" href="logo.jpg">
-<link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.jpg">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(180deg,#fff8fb 0%, #fff 100%);
+      color:#222;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(1120px, 92%);
+      margin:auto;
+    }
+
+    .bg-blur{
+      position:fixed;
+      border-radius:50%;
+      filter:blur(90px);
+      opacity:.18;
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .blur-1{
+      width:240px;
+      height:240px;
+      background:#ff77a8;
+      top:40px;
+      left:-60px;
+    }
+
+    .blur-2{
+      width:260px;
+      height:260px;
+      background:#b58cff;
+      right:-80px;
+      top:220px;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      min-height:82px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+    }
+
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      overflow:hidden;
+      flex-shrink:0;
+      box-shadow:0 10px 24px rgba(0,0,0,.1);
+    }
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .brand-text h1{
+      font-size:1.05rem;
+      font-weight:800;
+      color:#111;
+      line-height:1.1;
+    }
+
+    .brand-text p{
+      font-size:.84rem;
+      color:#777;
+      margin-top:3px;
+    }
+
+    .menu-toggle{
+      display:none;
+      border:none;
+      background:#ff4f93;
+      color:#fff;
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      font-size:1.2rem;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      padding:10px 14px;
+      border-radius:999px;
+      color:#444;
+      font-weight:500;
+      transition:.25s ease;
+    }
+
+    .nav-links a:hover{
+      background:#ffe3ef;
+      color:#ff2f7d;
+    }
+
+    .hero{
+      padding:70px 0 50px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero-text,
+    .hero-preview{
+      min-width:0;
+    }
+
+    .badge{
+      display:inline-block;
+      background:#ffe5f0;
+      color:#d72670;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:.9rem;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    .hero-text h2{
+      font-size:clamp(2rem, 4vw, 4rem);
+      line-height:1.1;
+      font-weight:800;
+      color:#111;
+      margin-bottom:18px;
+    }
+
+    .hero-text h2 span{
+      color:#ff2f7d;
+    }
+
+    .hero-text p{
+      font-size:1rem;
+      color:#666;
+      line-height:1.9;
+      max-width:620px;
+      margin-bottom:26px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+
+    .btn{
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.25s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+
+    .btn.primary{
+      background:#ff2f7d;
+      color:#fff;
+      box-shadow:0 14px 30px rgba(255,47,125,.22);
+    }
+
+    .btn.primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:#222;
+      border:1px solid rgba(0,0,0,.08);
+    }
+
+    .btn.secondary:hover{
+      background:#fafafa;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .stat-card{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+    }
+
+    .stat-card strong{
+      display:block;
+      font-size:1rem;
+      margin-bottom:6px;
+      color:#111;
+    }
+
+    .stat-card span{
+      font-size:.92rem;
+      color:#777;
+      line-height:1.6;
+    }
+
+    .preview-card{
+      background:linear-gradient(180deg,#ffffff,#fff5fa);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:0 20px 50px rgba(0,0,0,.08);
+    }
+
+    .floating{
+      animation:floatCard 4s ease-in-out infinite;
+    }
+
+    @keyframes floatCard{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
+
+    .preview-top{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .preview-logo{
+      width:56px;
+      height:56px;
+      border-radius:16px;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+
+    .preview-logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .preview-top h3{
+      font-size:1.05rem;
+      color:#111;
+      margin-bottom:3px;
+    }
+
+    .preview-top p{
+      font-size:.88rem;
+      color:#777;
+      line-height:1.5;
+    }
+
+    .preview-list{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin:20px 0;
+    }
+
+    .preview-list div{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      padding:12px 14px;
+      color:#444;
+      font-size:.95rem;
+    }
+
+    .mini-btn{
+      display:inline-block;
+      background:#ff2f7d;
+      color:#fff;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+    }
+
+    .section{
+      padding:70px 0;
+    }
+
+    .section.alt{
+      background:#fffafd;
+    }
+
+    .section-head{
+      text-align:center;
+      max-width:740px;
+      margin:0 auto 34px;
+    }
+
+    .small-tag{
+      display:inline-block;
+      background:#ffe7f1;
+      color:#d92c75;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.85rem;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .section-head h3{
+      font-size:clamp(1.8rem, 3vw, 2.8rem);
+      color:#111;
+      margin-bottom:10px;
+    }
+
+    .section-head p{
+      color:#6f6f6f;
+      line-height:1.9;
+      font-size:1rem;
+    }
+
+    .cards-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:24px;
+      padding:24px 20px;
+      box-shadow:0 14px 36px rgba(0,0,0,.05);
+      transition:.25s ease;
+      height:100%;
+    }
+
+    .card:hover,
+    .example-card:hover,
+    .order-box:hover{
+      transform:translateY(-4px);
+    }
+
+    .card-icon{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:#fff0f6;
+      font-size:1.5rem;
+      margin-bottom:16px;
+    }
+
+    .card h4{
+      font-size:1.05rem;
+      color:#111;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:#666;
+      line-height:1.8;
+      font-size:.95rem;
+      margin-bottom:14px;
+    }
+
+    .card ul{
+      padding-left:18px;
+      color:#555;
+      line-height:1.9;
+      font-size:.92rem;
+    }
+
+    .examples-group{
+      margin-bottom:34px;
+    }
+
+    .group-title{
+      font-size:1.15rem;
+      font-weight:800;
+      color:#111;
+      margin-bottom:16px;
+      padding-left:4px;
+    }
+
+    .examples-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .example-card{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:12px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:0 14px 36px rgba(0,0,0,.05);
+      transition:.25s ease;
+      min-height:230px;
+    }
+
+    .example-badge{
+      display:inline-block;
+      align-self:flex-start;
+      background:#ffe7f1;
+      color:#d72d75;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:.8rem;
+      font-weight:700;
+    }
+
+    .example-card h4{
+      font-size:1.08rem;
+      color:#111;
+    }
+
+    .example-card p{
+      color:#666;
+      line-height:1.8;
+      font-size:.95rem;
+      flex-grow:1;
+    }
+
+    .example-link{
+      color:#ff2f7d;
+      font-weight:700;
+      font-size:.95rem;
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .contact-text,
+    .order-box{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:26px;
+      padding:28px;
+      box-shadow:0 14px 36px rgba(0,0,0,.05);
+    }
+
+    .contact-text h3{
+      font-size:clamp(1.6rem, 2.6vw, 2.3rem);
+      color:#111;
+      margin:10px 0 20px;
+      line-height:1.25;
+    }
+
+    .social-buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .social-buttons a{
+      background:#ff2f7d;
+      color:#fff;
+      padding:14px 18px;
+      border-radius:14px;
+      font-weight:700;
+      display:inline-block;
+    }
+
+    .social-buttons a:last-child{
+      background:#111;
+    }
+
+    .order-box h4{
+      font-size:1.1rem;
+      color:#111;
+      margin-bottom:14px;
+    }
+
+    .order-box ul{
+      padding-left:18px;
+      line-height:2;
+      color:#555;
+    }
+
+    .footer{
+      padding:24px 0 40px;
+      border-top:1px solid rgba(0,0,0,.06);
+      background:#fff;
+      text-align:center;
+    }
+
+    .footer p{
+      color:#777;
+      font-size:.95rem;
+      line-height:1.7;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:all .6s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 1024px){
+      .cards-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .examples-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav{
+        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:82px;
+        left:4%;
+        right:4%;
+        background:#fff;
+        border:1px solid rgba(0,0,0,.06);
+        border-radius:20px;
+        box-shadow:0 18px 40px rgba(0,0,0,.08);
+        padding:12px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .nav-links a{
+        border-radius:14px;
+        padding:12px 14px;
+      }
+
+      .hero{
+        padding:40px 0 28px;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .contact-wrap{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 560px){
+      .container{
+        width:min(100%, 94%);
+      }
+
+      .brand-text p{
+        display:none;
+      }
+
+      .hero-text p,
+      .section-head p,
+      .card p,
+      .example-card p,
+      .footer p{
+        font-size:.93rem;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
+
+      .cards-grid{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+      }
+
+      .examples-grid{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+      }
+
+      .card,
+      .example-card,
+      .contact-text,
+      .order-box{
+        padding:18px;
+        border-radius:20px;
+      }
+
+      .card h4,
+      .example-card h4{
+        font-size:.98rem;
+      }
+
+      .card ul,
+      .order-box ul{
+        font-size:.9rem;
+      }
+    }
+
+    @media (max-width: 390px){
+      .cards-grid,
+      .examples-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="bg-blur blur-1"></div>
-<div class="bg-blur blur-2"></div>
-
-<header class="header">
-<div class="container nav">
-
-<a href="#home" class="brand">
-<div class="logo">
-<img src="logo.jpg" alt="click_to_fall logo">
-</div>
-
-<div class="brand-text">
-<h1>click_to_fall</h1>
-<p>Beautiful websites for special moments</p>
-</div>
-</a>
-
-<button class="menu-toggle" id="menuToggle">☰</button>
-
-<nav class="nav-links" id="navLinks">
-<a href="#home">Home</a>
-<a href="#categories">Categories</a>
-<a href="#design">Design</a>
-<a href="#order">Order</a>
-</nav>
-
-</div>
-</header>
-
-<main>
-
-<section class="hero" id="home">
-<div class="container hero-grid">
-
-<div class="hero-text">
-
-<span class="badge">Creative • Romantic • Memorable</span>
-
-<h2>
-Turn your moments into a beautiful
-<span>website gift</span>
-</h2>
-
-<p>
-click_to_fall creates custom websites for birthdays, anniversaries,
-memories and wedding invitations.
-Every page can be designed with your photos, text, vibe, and story.
-</p>
-
-<div class="hero-buttons">
-<a href="#categories" class="btn primary">Explore Categories</a>
-<a href="#order" class="btn secondary">Order by DM</a>
-</div>
-
-<div class="hero-stats">
-
-<div class="stat-card">
-<strong>4 Main Categories</strong>
-<span>Pick a customized website</span>
-</div>
-
-<div class="stat-card">
-<strong>Custom</strong>
-<span>Create your custom idea website</span>
-</div>
-
-</div>
-</div>
-
-<div class="hero-preview">
-
-<div class="preview-card floating">
-
-<div class="preview-top">
-<div class="preview-logo">
-<img src="logo.jpg">
-</div>
-
-<div>
-<h3>click_to_fall</h3>
-<p>Made for special people and moments</p>
-</div>
-</div>
-
-<div class="preview-list">
-<div>🎂 Birthday website</div>
-<div>💍 Anniversary website</div>
-<div>📸 Memories website</div>
-<div>👰🤵 Wedding invitation website</div>
-<div>✨ Elegant custom designs</div>
-</div>
-
-<a href="#design" class="mini-btn">See Design</a>
-
-</div>
-</div>
-</div>
-</section>
-
-<section class="section" id="categories">
-
-<div class="container">
-
-<div class="section-head">
-<span class="small-tag">Categories</span>
-<h3>Choose your website type</h3>
-
-<p>
-Each category can be personalized with names, photos, messages,
-colors, and the style you want.
-</p>
-</div>
-
-<div class="cards-grid">
-
-<article class="card reveal">
-<div class="card-icon">🎂</div>
-
-<h4>Birthday Website</h4>
-
-<p>
-A fun and sweet birthday website with lovely wishes,
-photos, surprise text, and a special design.
-</p>
-
-<ul>
-<li>Birthday message section</li>
-<li>Photos and memories</li>
-<li>Custom surprise style</li>
-</ul>
-</article>
-
-<article class="card reveal">
-<div class="card-icon">👰🤵</div>
-
-<h4>Wedding Invitation Website</h4>
-
-<p>
-A beautiful digital wedding invitation with romantic design,
-photos, wedding details and location.
-</p>
-
-<ul>
-<li>Wedding welcome page</li>
-<li>Date, time and location</li>
-<li>Photo gallery and RSVP</li>
-</ul>
-</article>
-
-<article class="card reveal">
-<div class="card-icon">💍</div>
-
-<h4>Anniversary Website</h4>
-
-<p>
-A romantic website for couples with timelines,
-memories, love notes and elegant details.
-</p>
-
-<ul>
-<li>Love story layout</li>
-<li>Special date highlights</li>
-<li>Romantic design style</li>
-</ul>
-</article>
-
-<article class="card reveal">
-<div class="card-icon">📸</div>
-
-<h4>Memories Website</h4>
-
-<p>
-A digital memory space for favorite photos,
-stories and emotional moments.
-</p>
-
-<ul>
-<li>Gallery sections</li>
-<li>Memory cards</li>
-<li>Personalized look</li>
-</ul>
-</article>
-
-</div>
-</div>
-</section>
-
-<section class="section alt" id="design">
-
-<div class="container">
-
-<div class="section-head">
-<span class="small-tag">Designs</span>
-<h3>Pick a Design</h3>
-</div>
-
-<div class="examples-group">
-
-<div class="group-title">🎂 Birthday Websites</div>
-
-<div class="examples-grid">
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Birthday-design-1/" target="_blank">
-
-<span class="example-badge">Birthday</span>
-
-<h4>Pink Birthday Surprise</h4>
-
-<p>
-Pink cake with a candle.
-When you blow it, it opens a page with romantic text and photos.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Birthday-design-2/" target="_blank">
-
-<span class="example-badge">Birthday</span>
-
-<h4>Elegant Birthday Gift</h4>
-
-<p>
-Open 3 gifts then it opens a page with romantic text and photos.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Birthday-design-3/" target="_blank">
-
-<span class="example-badge">Birthday</span>
-
-<h4>4 Scene Happy Birthday Page</h4>
-
-<p>
-Interactive surprise page with photos, song and present.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-</div>
-</div>
-
-<div class="examples-group">
-
-<div class="group-title">👰🤵 Wedding Invitation Websites</div>
-
-<div class="examples-grid">
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Wedding-design-1/" target="_blank">
-
-<span class="example-badge">Wedding</span>
-
-<h4>Wedding Invitation Website</h4>
-
-<p>
-Elegant wedding invitation with animations, photos
-and clickable location.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Wedding-design-2/" target="_blank">
-
-<span class="example-badge">Wedding</span>
-
-<h4>Wedding Invitation Website</h4>
-
-<p>
-Cute & Simple wedding invitation
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-</div>
-
-
-
-</div>
-
-<div class="examples-group">
-
-<div class="group-title">💍 Anniversary Websites</div>
-
-<div class="examples-grid">
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Anniversary-design-1/" target="_blank">
-
-<span class="example-badge">Anniversary</span>
-
-<h4>Our Love Story Website</h4>
-
-<p>
-Secret passcode page with memories, photos and love messages.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Anniversary-design-2/" target="_blank">
-
-<span class="example-badge">Anniversary</span>
-
-<h4>Romantic Timeline Page</h4>
-
-<p>
-Romantic timeline design with photos and storybook layout.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Anniversary-design-3/" target="_blank">
-
-<span class="example-badge">Anniversary</span>
-
-<h4>Elegant Couple Memories</h4>
-
-<p>
-Passcode protected page with photos and romantic messages.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-</div>
-</div>
-
-<div class="examples-group">
-
-<div class="group-title">📸 Memories Websites</div>
-
-<div class="examples-grid">
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Memories-design-1/" target="_blank">
-
-<span class="example-badge">Memories</span>
-
-<h4>Happy Memory Collection</h4>
-
-<p>
-Memory website with pincode, photos, song and flower pocket.
-</p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-
-<a class="example-card reveal" href="https://click-to-fall.github.io/Memories-design-2/" target="_blank">
-
-<span class="example-badge">Memories</span>
-
-<h4>Memories Train</h4>
-
-<p>
-Memory train website with a secret pin to enter </p>
-
-<span class="example-link">Open Website →</span>
-
-</a>
-
-</div>
-</div>
-
-</div>
-</section>
-
-<section class="section alt" id="order">
-
-<div class="container contact-wrap">
-
-<div class="contact-text">
-
-<span class="small-tag">Order</span>
-
-<h3>For order, DM me on Instagram or TikTok</h3>
-
-<div class="social-buttons">
-<a href="https://www.instagram.com/click_to_fall" target="_blank">
-DM on Instagram
-</a>
-
-<a href="https://www.tiktok.com/@click_to_fall" target="_blank">
-DM on TikTok
-</a>
-</div>
-
-</div>
-
-<div class="order-box reveal">
-
-<h4>What to send in your DM</h4>
-
-<ul>
-<li>Your website design name</li>
-<li>Names you want on the website</li>
-<li>Your photos or memories</li>
-<li>The text you want</li>
-</ul>
-
-</div>
-
-</div>
-</section>
-
-</main>
-
-<footer class="footer">
-<div class="container">
-<p>© 2026 click_to_fall — made for birthdays, anniversaries, memories and more.</p>
-</div>
-</footer>
-
-<script src="script.js"></script>
+  <div class="bg-blur blur-1"></div>
+  <div class="bg-blur blur-2"></div>
+
+  <header class="header">
+    <div class="container nav">
+
+      <a href="#home" class="brand">
+        <div class="logo">
+          <img src="logo.jpg" alt="click_to_fall logo">
+        </div>
+
+        <div class="brand-text">
+          <h1>click_to_fall</h1>
+          <p>Beautiful websites for special moments</p>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#design">Designs</a>
+        <a href="#order">Order</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-text">
+          <span class="badge">Creative • Romantic • Memorable</span>
+
+          <h2>
+            Turn your moments into a beautiful
+            <span>website gift</span>
+          </h2>
+
+          <p>
+            click_to_fall creates custom websites for birthdays, anniversaries, Mother’s Day, memories, and wedding invitations. Every website can be personalized with your names, photos, text, colors, and your special story.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#categories" class="btn primary">Explore Categories</a>
+            <a href="#order" class="btn secondary">Order by DM</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong>5 Main Categories</strong>
+              <span>Birthday, Wedding, Anniversary, Memories, Mother’s Day</span>
+            </div>
+
+            <div class="stat-card">
+              <strong>Custom Design</strong>
+              <span>You can also request a completely custom website idea</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-preview">
+          <div class="preview-card floating">
+
+            <div class="preview-top">
+              <div class="preview-logo">
+                <img src="logo.jpg" alt="click_to_fall logo">
+              </div>
+
+              <div>
+                <h3>click_to_fall</h3>
+                <p>Made for special people and beautiful moments</p>
+              </div>
+            </div>
+
+            <div class="preview-list">
+              <div>🎂 Birthday website</div>
+              <div>💍 Anniversary website</div>
+              <div>📸 Memories website</div>
+              <div>👰🤵 Wedding invitation website</div>
+              <div>🌷 Mother’s Day website</div>
+              <div>✨ Elegant custom designs</div>
+            </div>
+
+            <a href="#design" class="mini-btn">See Designs</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="small-tag">Categories</span>
+          <h3>Choose your website type</h3>
+          <p>
+            Each category can be personalized with names, photos, messages, colors, and the exact style you want.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+
+          <article class="card reveal">
+            <div class="card-icon">🎂</div>
+            <h4>Birthday Website</h4>
+            <p>
+              A fun and sweet birthday website with lovely wishes, photos, surprise text, and a special design.
+            </p>
+            <ul>
+              <li>Birthday message section</li>
+              <li>Photos and memories</li>
+              <li>Custom surprise style</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">👰🤵</div>
+            <h4>Wedding Invitation Website</h4>
+            <p>
+              A beautiful digital wedding invitation with romantic design, photos, wedding details and location.
+            </p>
+            <ul>
+              <li>Wedding welcome page</li>
+              <li>Date, time and location</li>
+              <li>Photo gallery and RSVP</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">💍</div>
+            <h4>Anniversary Website</h4>
+            <p>
+              A romantic website for couples with timelines, memories, love notes and elegant details.
+            </p>
+            <ul>
+              <li>Love story layout</li>
+              <li>Special date highlights</li>
+              <li>Romantic design style</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">📸</div>
+            <h4>Memories Website</h4>
+            <p>
+              A digital memory space for favorite photos, stories and emotional moments.
+            </p>
+            <ul>
+              <li>Gallery sections</li>
+              <li>Memory cards</li>
+              <li>Personalized look</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon">🌷</div>
+            <h4>Mother’s Day Website</h4>
+            <p>
+              A lovely website gift for mom with photos, sweet words and a heartfelt design.
+            </p>
+            <ul>
+              <li>Heartfelt message section</li>
+              <li>Photos and memories</li>
+              <li>Elegant surprise design</li>
+            </ul>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section alt" id="design">
+      <div class="container">
+
+        <div class="section-head">
+          <span class="small-tag">Designs</span>
+          <h3>Pick a Design</h3>
+          <p>
+            Choose one of the ready designs, or ask for a custom design based on your idea.
+          </p>
+        </div>
+
+        <div class="examples-group">
+          <div class="group-title">🎂 Birthday Websites</div>
+
+          <div class="examples-grid">
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Birthday-design-1/" target="_blank">
+              <span class="example-badge">Birthday</span>
+              <h4>Pink Birthday Surprise</h4>
+              <p>
+                Pink cake with a candle. When you blow it, it opens a page with romantic text and photos.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Birthday-design-2/" target="_blank">
+              <span class="example-badge">Birthday</span>
+              <h4>Elegant Birthday Gift</h4>
+              <p>
+                Open 3 gifts then it opens a page with romantic text and photos.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Birthday-design-3/" target="_blank">
+              <span class="example-badge">Birthday</span>
+              <h4>4 Scene Happy Birthday Page</h4>
+              <p>
+                Interactive surprise page with photos, song and present.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="examples-group">
+          <div class="group-title">👰🤵 Wedding Invitation Websites</div>
+
+          <div class="examples-grid">
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Wedding-design-1/" target="_blank">
+              <span class="example-badge">Wedding</span>
+              <h4>Wedding Invitation Website</h4>
+              <p>
+                Elegant wedding invitation with animations, photos and clickable location.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Wedding-design-2/" target="_blank">
+              <span class="example-badge">Wedding</span>
+              <h4>Simple Wedding Invitation</h4>
+              <p>
+                Cute and simple wedding invitation website with a soft romantic style.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="examples-group">
+          <div class="group-title">💍 Anniversary Websites</div>
+
+          <div class="examples-grid">
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Anniversary-design-1/" target="_blank">
+              <span class="example-badge">Anniversary</span>
+              <h4>Our Love Story Website</h4>
+              <p>
+                Secret passcode page with memories, photos and love messages.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Anniversary-design-2/" target="_blank">
+              <span class="example-badge">Anniversary</span>
+              <h4>Romantic Timeline Page</h4>
+              <p>
+                Romantic timeline design with photos and storybook layout.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Anniversary-design-3/" target="_blank">
+              <span class="example-badge">Anniversary</span>
+              <h4>Elegant Couple Memories</h4>
+              <p>
+                Passcode protected page with photos and romantic messages.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="examples-group">
+          <div class="group-title">📸 Memories Websites</div>
+
+          <div class="examples-grid">
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Memories-design-1/" target="_blank">
+              <span class="example-badge">Memories</span>
+              <h4>Happy Memory Collection</h4>
+              <p>
+                Memory website with pincode, photos, song and flower pocket.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+
+            <a class="example-card reveal" href="https://click-to-fall.github.io/Memories-design-2/" target="_blank">
+              <span class="example-badge">Memories</span>
+              <h4>Memories Train</h4>
+              <p>
+                Memory train website with a secret pin to enter.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="examples-group">
+          <div class="group-title">🌷 Mother’s Day Websites</div>
+
+          <div class="examples-grid">
+            <a class="example-card reveal" href="https://click-to-fall.github.io/MothersDay-design-1/" target="_blank">
+              <span class="example-badge">NEW • Mother’s Day</span>
+              <h4>Mother’s Day Website</h4>
+              <p>
+                A lovely Mother’s Day website with elegant design, sweet messages, photos, and a heartfelt surprise for mom.
+              </p>
+              <span class="example-link">Open Website →</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section alt" id="order">
+      <div class="container contact-wrap">
+
+        <div class="contact-text">
+          <span class="small-tag">Order</span>
+          <h3>For orders, DM me on Instagram or TikTok</h3>
+
+          <div class="social-buttons">
+            <a href="https://www.instagram.com/click_to_fall" target="_blank">DM on Instagram</a>
+            <a href="https://www.tiktok.com/@click_to_fall" target="_blank">DM on TikTok</a>
+          </div>
+        </div>
+
+        <div class="order-box reveal">
+          <h4>What to send in your DM</h4>
+          <ul>
+            <li>Your chosen website design name</li>
+            <li>The names you want on the website</li>
+            <li>Your photos or memories</li>
+            <li>The text or message you want</li>
+            <li>Any colors or style you prefer</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 click_to_fall — made for birthdays, anniversaries, Mother’s Day, memories and more.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.9;
+
+      reveals.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < triggerBottom) {
+          item.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 
 </body>
 </html>
