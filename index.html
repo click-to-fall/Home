@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>click_to_fall | Custom Birthday, Love, Anniversary, Wedding Invitation Websites</title>
+  <title>click_to_fall | مواقع مخصصة لأعياد الميلاد، الحب، الذكريات ودعوات الزفاف</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     *{
@@ -16,7 +16,7 @@
     }
 
     body{
-      font-family:'Poppins',sans-serif;
+      font-family:'Cairo', 'Poppins', sans-serif;
       background:#fff8fb;
       color:#222;
     }
@@ -27,7 +27,7 @@
     }
 
     .container{
-      width:min(1120px,92%);
+      width:min(1120px, 92%);
       margin:auto;
     }
 
@@ -44,6 +44,7 @@
       justify-content:space-between;
       align-items:center;
       min-height:82px;
+      gap: 15px;
     }
 
     .brand{
@@ -57,6 +58,7 @@
       height:54px;
       border-radius:16px;
       overflow:hidden;
+      flex-shrink: 0;
     }
 
     .logo img{
@@ -75,6 +77,12 @@
       color:#777;
     }
 
+    .nav-right-side {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
     .nav-links{
       display:flex;
       gap:12px;
@@ -84,11 +92,34 @@
       padding:10px 14px;
       border-radius:999px;
       transition:.2s;
+      font-weight: 600;
     }
 
     .nav-links a:hover{
       background:#ffe3ef;
       color:#ff2f7d;
+    }
+
+    /* Wedding Direct Button */
+    .btn-wedding {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ff2f7d, #ff5c9d);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(255, 47, 125, 0.3);
+      transition: all .25s ease;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .btn-wedding:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 47, 125, 0.45);
+      background: linear-gradient(135deg, #d72670, #ff2f7d);
     }
 
     .hero{
@@ -103,13 +134,14 @@
       padding:10px 16px;
       border-radius:999px;
       font-size:.9rem;
-      font-weight:600;
+      font-weight:700;
       margin-bottom:18px;
     }
 
     .hero h2{
-      font-size:clamp(2rem,4vw,4rem);
+      font-size:clamp(1.8rem, 4vw, 3.5rem);
       margin-bottom:20px;
+      line-height: 1.3;
     }
 
     .hero h2 span{
@@ -122,19 +154,41 @@
       line-height:1.9;
       color:#666;
       margin-bottom:28px;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn{
       display:inline-block;
-      padding:14px 22px;
+      padding:14px 24px;
       border-radius:14px;
       font-weight:700;
       background:#ff2f7d;
       color:#fff;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      background: #d72670;
+    }
+
+    .btn-secondary {
+      background: #ffe5f0;
+      color: #d72670;
+    }
+
+    .btn-secondary:hover {
+      background: #ffd0e3;
     }
 
     .section{
-      padding:70px 0;
+      padding:60px 0;
     }
 
     .section-head{
@@ -154,7 +208,7 @@
     }
 
     .section-head h3{
-      font-size:2.3rem;
+      font-size:2.1rem;
       margin-bottom:12px;
     }
 
@@ -213,7 +267,7 @@
     .old-price{
       color:#999;
       text-decoration:line-through;
-      margin-right:8px;
+      margin-left:8px;
     }
 
     .example-link{
@@ -229,19 +283,37 @@
       margin-top:40px;
     }
 
+    /* Mobile Responsive Optimizations */
     @media(max-width:900px){
       .examples-grid{
         grid-template-columns:1fr 1fr;
       }
     }
 
-    @media(max-width:600px){
+    @media(max-width:680px){
+      .nav {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 12px;
+      }
+
+      .nav-right-side {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
       .examples-grid{
         grid-template-columns:1fr;
       }
 
-      .nav-links{
-        display:none;
+      .hero {
+        padding: 40px 0;
+      }
+
+      .btn-wedding {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
@@ -254,20 +326,27 @@
 
     <a href="#" class="brand">
       <div class="logo">
-        <img src="logo.jpg">
+        <img src="logo.jpg" alt="click_to_fall logo">
       </div>
 
       <div class="brand-text">
         <h1>click_to_fall</h1>
-        <p>Beautiful websites for special moments</p>
+        <p>مواقع متميزة لللحظات الخاصة</p>
       </div>
     </a>
 
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#design">Designs</a>
-      <a href="#order">Order</a>
-    </nav>
+    <div class="nav-right-side">
+      <nav class="nav-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#design">التصاميم</a>
+        <a href="#order">الطلب</a>
+      </nav>
+
+      <!-- زر دعوات الأفراح المباشر -->
+      <a href="https://click-to-fall.github.io/Wedding-designs" target="_blank" class="btn-wedding">
+        💍 دعوات الأفراح
+      </a>
+    </div>
 
   </div>
 </header>
@@ -275,19 +354,21 @@
 <section class="hero" id="home">
   <div class="container">
 
-    <span class="badge">Creative • Romantic • Memorable</span>
+    <span class="badge">مبتكر • رومانسي • لا يُنسى</span>
 
     <h2>
-      Turn your moments into a beautiful
-      <span>website gift</span>
+      حوّل لحظاتك السعيدة إلى
+      <span>هدية موقع إلكتروني</span>
     </h2>
 
     <p>
-      click to fall creates custom websites for birthdays, anniversaries,
-      memories, and wedding invitations.
+      موقع click_to_fall يصمم لك مواقع مخصصة لأعياد الميلاد، الذكريات، هدايا الحب ودعوات الزفاف.
     </p>
 
-    <a href="#design" class="btn">Explore ready Designs</a>
+    <div class="hero-actions">
+      <a href="#design" class="btn">استعرض التصاميم الجاهزة</a>
+      <a href="https://click-to-fall.github.io/Wedding-designs" target="_blank" class="btn btn-secondary">تصاميم دعوات الأفراح 💍</a>
+    </div>
 
   </div>
 </section>
@@ -297,177 +378,129 @@
   <div class="container">
 
     <div class="section-head">
-      <span class="small-tag">Designs</span>
-      <h3>Pick a Design</h3>
-      <p>Choose your favorite design.</p>
+      <span class="small-tag">التصاميم</span>
+      <h3>اختر تصميمك المفضّل</h3>
+      <p>تصفح المجموعة واختر ما يناسب مناسبتك.</p>
     </div>
 
     <div class="examples-grid">
-      <a class="example-card" href="https://click-to-fall.github.io/Wedding-design-1/" target="_blank">
-        <span class="example-badge">Wedding</span>
-        <h4>Wedding Design 1</h4>
-        <p>Elegant wedding invitation with animations and photos.</p>
+
+      <a class="example-card" href="https://click-to-fall.github.io/Memories-design-5/" target="_blank">
+        <span class="example-badge">الأكثر مبيعاً</span>
+        <h4>تصميم الذكريات</h4>
+        <p>عداد تنازلي، صور مع تعليقات مخصصة.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          240 EGP
+          <span class="old-price">250 ج.م</span>
+          150 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Wedding-design-2/" target="_blank">
-        <span class="example-badge">Wedding</span>
-        <h4>Wedding Design 2</h4>
-        <p>Simple and romantic wedding invitation website.</p>
-
-        <div class="price">
-          <span class="old-price">300 EGP</span>
-          240 EGP
-        </div>
-
-        <span class="example-link">Open Website →</span>
-      </a>
-      <a class="example-card" href="https://click-to-fall.github.io/Wedding-design-3/" target="_blank">
-        <span class="example-badge">Wedding</span>
-        <h4>Wedding Design 2</h4>
-        <p>Simple and romantic wedding invitation website.</p>
-
-        <div class="price">
-          <span class="old-price">300 EGP</span>
-          240 EGP
-        </div>
-
-        <span class="example-link">Open Website →</span>
-      </a>
-
-
-            <a class="example-card" href="https://click-to-fall.github.io/Memories-design-5/" target="_blank">
-        <span class="example-badge">Most Selling Design</span>
-        <p>Countdown, photos with caption.</p>
-
-        <div class="price">
-          <span class="old-price">250 EGP</span>
-          150 EGP
-        </div>
-
-        <span class="example-link">Open Website →</span>
-      </a>
-
 
       <a class="example-card" href="https://click-to-fall.github.io/Birthday-design-1/" target="_blank">
-        <span class="example-badge">Design 1</span>
-        <p>Pink birthday surprise website with photos and romantic messages.</p>
+        <span class="example-badge">تصميم 1</span>
+        <h4>عيد ميلاد وردي</h4>
+        <p>موقع مفاجأة عيد ميلاد بلون وردي مع صور ورسائل رومانسية.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          200 EGP
+          <span class="old-price">300 ج.م</span>
+          240 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
-
 
       <a class="example-card" href="https://click-to-fall.github.io/Birthday-design-3/" target="_blank">
-        <span class="example-badge">Design 2</span>
-        <p>Interactive birthday page with music, scenes and presents.</p>
+        <span class="example-badge">تصميم 2</span>
+        <h4>عيد ميلاد تفاعلي</h4>
+        <p>صفحة عيد ميلاد تفاعلية تحتوي على موسيقى ومشاهد وهدايا.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          200 EGP
+          <span class="old-price">300 ج.م</span>
+          240 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
-
-
 
       <a class="example-card" href="https://click-to-fall.github.io/Anniversary-design-1/" target="_blank">
-        <span class="example-badge">Design 3</span>
-        <p>Love story website with passcode and memories.</p>
+        <span class="example-badge">تصميم 3</span>
+        <h4>قصة حب باسبورد</h4>
+        <p>موقع قصة حب محمي بكلمة سر مع قسم للذكريات.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          200 EGP
+          <span class="old-price">300 ج.م</span>
+          240 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
 
-      
       <a class="example-card" href="https://click-to-fall.github.io/Anniversary-design-2/" target="_blank">
-        <span class="example-badge">Design 4</span>
-        <p>Love story website with memories and photos and text.</p>
+        <span class="example-badge">تصميم 4</span>
+        <h4>قصة حب ورسائل</h4>
+        <p>موقع قصة حب يحتوي على ذكريات، صور ونصوص رومانسية.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          200 EGP
+          <span class="old-price">300 ج.م</span>
+          240 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
 
-
-
-      
       <a class="example-card" href="https://click-to-fall.github.io/Anniversary-design-3/" target="_blank">
-        <span class="example-badge">Design 5</span>
-        <p>Love story website with passcode and memories.</p>
+        <span class="example-badge">تصميم 5</span>
+        <h4>ذكريات خاصة</h4>
+        <p>موقع قصة حب أنيق محمي بكلمة سر لحفظ الذكريات.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          200 EGP
+          <span class="old-price">300 ج.م</span>
+          240 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
 
-
-
-      
       <a class="example-card" href="https://click-to-fall.github.io/Memories-design-2/" target="_blank">
-        <span class="example-badge">Design 6</span>
-        <p>Train of Memories</p>
+        <span class="example-badge">تصميم 6</span>
+        <h4>قطار الذكريات</h4>
+        <p>عرض مميز وساحر لذكرياتكم على هيئة قطار ذكريات.</p>
 
         <div class="price">
-          <span class="old-price">450 EGP</span>
-          250 EGP
+          <span class="old-price">460 ج.م</span>
+          300 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
 
-
-
-      
       <a class="example-card" href="https://click-to-fall.github.io/Memories-design-1/" target="_blank">
-        <span class="example-badge">Design 7</span>
-        <p>Bear Memories.</p>
+        <span class="example-badge">تصميم 7</span>
+        <h4>ذكريات الدب</h4>
+        <p>تصميم لطيف ورومانسي بطابع الدب للتعبير عن مشاعرك.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          200 EGP
+          <span class="old-price">300 ج.م</span>
+          240 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
 
-
-
-      
       <a class="example-card" href="https://click-to-fall.github.io/Memories-design-3/" target="_blank">
-        <span class="example-badge">Design 8</span>
-        <p>Book Memories</p>
+        <span class="example-badge">تصميم 8</span>
+        <h4>كتاب الذكريات</h4>
+        <p>تصفح ذكرياتكم معاً وكأنها صفحات داخل كتاب خالي من النسيان.</p>
 
         <div class="price">
-          <span class="old-price">300 EGP</span>
-          200 EGP
+          <span class="old-price">300 ج.م</span>
+          240 ج.م
         </div>
 
-        <span class="example-link">Open Website →</span>
+        <span class="example-link">افتح الموقع ←</span>
       </a>
-
-
 
     </div>
 
@@ -479,8 +512,8 @@
   <div class="container">
 
     <div class="section-head">
-      <span class="small-tag">Order</span>
-      <h3>DM me on Instagram or TikTok</h3>
+      <span class="small-tag">الطلب</span>
+      <h3>تواصل معنا عبر إنستغرام أو تيك توك للطلب</h3>
     </div>
 
     <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
@@ -498,7 +531,7 @@
 
 <footer class="footer">
   <div class="container">
-    <p>© 2026 click_to_fall made for special moments.</p>
+    <p>© 2026 click_to_fall صنع للحظات الخاصة.</p>
   </div>
 </footer>
 
