@@ -1,64 +1,99 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>click_to_fall | مواقع مخصصة لأعياد الميلاد، الحب، الذكريات ودعوات الزفاف</title>
+  <title>click_to_fall | Premium Digital Experiences</title>
+  <meta name="description" content="click_to_fall — تصاميم مواقع رقمية راقية للحب، الذكريات، أعياد الميلاد والمناسبات الخاصة.">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    :root{
+      --burgundy:#4b1724;
+      --burgundy-2:#6d2638;
+      --wine:#321019;
+      --cream:#f8f3eb;
+      --ivory:#fffdf9;
+      --gold:#b9975b;
+      --gold-light:#d8bd84;
+      --text:#241a1d;
+      --muted:#776c70;
+      --line:rgba(75,23,36,.13);
+      --shadow:0 22px 60px rgba(48,19,28,.10);
+      --radius:22px;
     }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
 
     body{
-      font-family:'Cairo', 'Poppins', sans-serif;
-      background:#fff8fb;
-      color:#222;
+      font-family:"Cairo",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(185,151,91,.09), transparent 28%),
+        radial-gradient(circle at 90% 15%, rgba(75,23,36,.06), transparent 25%),
+        var(--ivory);
+      line-height:1.7;
+      overflow-x:hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.35;
+      background-image:radial-gradient(rgba(75,23,36,.07) .7px, transparent .7px);
+      background-size:18px 18px;
+      mask-image:linear-gradient(to bottom, black, transparent 75%);
+      z-index:-1;
     }
+
+    a{text-decoration:none;color:inherit}
 
     .container{
-      width:min(1120px, 92%);
+      width:min(1180px,92%);
       margin:auto;
     }
 
+    /* HEADER */
     .header{
       position:sticky;
       top:0;
       z-index:1000;
-      background:#fff;
-      border-bottom:1px solid rgba(0,0,0,.06);
+      background:rgba(255,253,249,.90);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
     }
 
     .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
       min-height:82px;
-      gap: 15px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:13px;
+      min-width:max-content;
     }
 
     .logo{
-      width:54px;
-      height:54px;
-      border-radius:16px;
+      width:48px;
+      height:48px;
+      border-radius:14px;
       overflow:hidden;
-      flex-shrink: 0;
+      border:1px solid rgba(185,151,91,.45);
+      box-shadow:0 7px 22px rgba(75,23,36,.12);
+      background:var(--burgundy);
     }
 
     .logo img{
@@ -67,253 +102,680 @@
       object-fit:cover;
     }
 
-    .brand-text h1{
+    .brand-copy strong{
+      display:block;
+      color:var(--burgundy);
       font-size:1.05rem;
       font-weight:800;
+      letter-spacing:.2px;
     }
 
-    .brand-text p{
-      font-size:.85rem;
-      color:#777;
+    .brand-copy span{
+      display:block;
+      color:var(--muted);
+      font-size:.72rem;
+      margin-top:-2px;
     }
 
-    .nav-right-side {
-      display: flex;
-      align-items: center;
-      gap: 15px;
+    .nav-side{
+      display:flex;
+      align-items:center;
+      gap:18px;
     }
 
     .nav-links{
       display:flex;
-      gap:12px;
+      align-items:center;
+      gap:5px;
     }
 
     .nav-links a{
-      padding:10px 14px;
-      border-radius:999px;
-      transition:.2s;
-      font-weight: 600;
+      color:#5f5155;
+      font-size:.9rem;
+      font-weight:600;
+      padding:9px 13px;
+      border-radius:10px;
+      transition:.25s;
     }
 
     .nav-links a:hover{
-      background:#ffe3ef;
-      color:#ff2f7d;
+      color:var(--burgundy);
+      background:rgba(75,23,36,.06);
     }
 
-    /* Wedding Direct Button */
-    .btn-wedding {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #ff2f7d, #ff5c9d);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(255, 47, 125, 0.3);
-      transition: all .25s ease;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-
-    .btn-wedding:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 47, 125, 0.45);
-      background: linear-gradient(135deg, #d72670, #ff2f7d);
-    }
-
-    .hero{
-      padding:70px 0;
-      text-align:center;
-    }
-
-    .badge{
-      display:inline-block;
-      background:#ffe5f0;
-      color:#d72670;
-      padding:10px 16px;
-      border-radius:999px;
-      font-size:.9rem;
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:var(--burgundy);
+      color:#fff;
+      border:1px solid var(--burgundy);
+      padding:11px 17px;
+      border-radius:11px;
+      font-size:.84rem;
       font-weight:700;
-      margin-bottom:18px;
+      box-shadow:0 9px 24px rgba(75,23,36,.18);
+      transition:.25s;
+      white-space:nowrap;
     }
 
-    .hero h2{
-      font-size:clamp(1.8rem, 4vw, 3.5rem);
-      margin-bottom:20px;
-      line-height: 1.3;
+    .nav-cta:hover{
+      transform:translateY(-2px);
+      background:var(--wine);
+      box-shadow:0 13px 28px rgba(75,23,36,.24);
     }
 
-    .hero h2 span{
-      color:#ff2f7d;
+    /* HERO */
+    .hero{
+      position:relative;
+      padding:105px 0 92px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      border:1px solid rgba(185,151,91,.22);
+      border-radius:50%;
+      pointer-events:none;
+    }
+
+    .hero::before{
+      width:440px;
+      height:440px;
+      right:-250px;
+      top:-170px;
+    }
+
+    .hero::after{
+      width:300px;
+      height:300px;
+      left:-180px;
+      bottom:-160px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--gold);
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:1.8px;
+      margin-bottom:19px;
+      text-transform:uppercase;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after{
+      content:"";
+      width:30px;
+      height:1px;
+      background:var(--gold);
+      opacity:.65;
+    }
+
+    .hero h1{
+      max-width:900px;
+      margin:auto;
+      color:var(--burgundy);
+      font-family:"Playfair Display","Cairo",serif;
+      font-size:clamp(2.4rem,5.5vw,4.65rem);
+      line-height:1.17;
+      font-weight:700;
+      letter-spacing:-.8px;
+    }
+
+    .hero h1 em{
+      color:var(--gold);
+      font-style:normal;
     }
 
     .hero p{
-      max-width:700px;
-      margin:auto;
-      line-height:1.9;
-      color:#666;
-      margin-bottom:28px;
-      font-size: 1.05rem;
+      max-width:720px;
+      margin:24px auto 0;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:2;
     }
 
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:32px;
     }
 
     .btn{
-      display:inline-block;
-      padding:14px 24px;
-      border-radius:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      min-height:49px;
+      padding:0 22px;
+      border-radius:11px;
       font-weight:700;
-      background:#ff2f7d;
+      font-size:.9rem;
+      transition:.25s;
+    }
+
+    .btn-primary{
+      background:var(--burgundy);
       color:#fff;
-      transition: .25s;
+      box-shadow:0 12px 30px rgba(75,23,36,.18);
     }
 
-    .btn:hover {
-      background: #d72670;
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      background:var(--wine);
     }
 
-    .btn-secondary {
-      background: #ffe5f0;
-      color: #d72670;
+    .btn-outline{
+      color:var(--burgundy);
+      background:rgba(255,255,255,.55);
+      border:1px solid rgba(75,23,36,.22);
     }
 
-    .btn-secondary:hover {
-      background: #ffd0e3;
+    .btn-outline:hover{
+      transform:translateY(-2px);
+      border-color:var(--gold);
+      background:#fff;
     }
 
+    .hero-note{
+      margin-top:19px;
+      color:#988b8f;
+      font-size:.76rem;
+    }
+
+    /* TRUST STRIP */
+    .trust{
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:rgba(248,243,235,.55);
+    }
+
+    .trust-inner{
+      min-height:88px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:45px;
+      flex-wrap:wrap;
+      color:#685a5e;
+      font-size:.82rem;
+      font-weight:600;
+    }
+
+    .trust-item{
+      display:flex;
+      align-items:center;
+      gap:9px;
+    }
+
+    .trust-dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--gold);
+    }
+
+    /* SECTION */
     .section{
-      padding:60px 0;
+      padding:92px 0;
     }
 
     .section-head{
       text-align:center;
-      margin-bottom:40px;
+      margin-bottom:42px;
     }
 
-    .small-tag{
-      display:inline-block;
-      background:#ffe7f1;
-      color:#d92c75;
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:.85rem;
-      font-weight:700;
-      margin-bottom:14px;
+    .section-label{
+      color:var(--gold);
+      font-size:.73rem;
+      font-weight:800;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:9px;
     }
 
-    .section-head h3{
-      font-size:2.1rem;
-      margin-bottom:12px;
+    .section-head h2{
+      color:var(--burgundy);
+      font-family:"Playfair Display","Cairo",serif;
+      font-size:clamp(2rem,4vw,3rem);
+      line-height:1.25;
     }
 
     .section-head p{
-      color:#666;
+      max-width:600px;
+      margin:12px auto 0;
+      color:var(--muted);
+      font-size:.92rem;
     }
 
-    .examples-grid{
+    /* DESIGN GRID */
+    .design-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
+      grid-template-columns:repeat(2,1fr);
+      gap:28px;
     }
 
-    .example-card{
+    .design-card{
+      position:relative;
+      overflow:hidden;
       background:#fff;
-      border-radius:24px;
-      padding:22px;
-      border:1px solid rgba(0,0,0,.06);
-      box-shadow:0 14px 36px rgba(0,0,0,.05);
-      transition:.25s;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:0 12px 35px rgba(49,18,28,.06);
+      transition:.35s cubic-bezier(.2,.75,.2,1);
     }
 
-    .example-card:hover{
-      transform:translateY(-4px);
+    .design-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow);
+      border-color:rgba(185,151,91,.4);
     }
 
-    .example-badge{
-      display:inline-block;
-      background:#ffe7f1;
-      color:#d72d75;
-      padding:7px 12px;
+    .preview{
+      position:relative;
+      aspect-ratio:3/4;
+      overflow:hidden;
+      background:#eee;
+    }
+
+    .preview img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      transition:transform .65s cubic-bezier(.2,.75,.2,1);
+    }
+
+    .design-card:hover .preview img{
+      transform:scale(1.045);
+    }
+
+    .preview::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(25,8,14,.30), transparent 55%);
+      pointer-events:none;
+    }
+
+    .preview-badge{
+      position:absolute;
+      z-index:2;
+      top:14px;
+      right:14px;
+      background:rgba(255,253,249,.93);
+      color:var(--burgundy);
+      border:1px solid rgba(185,151,91,.45);
       border-radius:999px;
-      font-size:.8rem;
-      font-weight:700;
-      width:fit-content;
+      padding:6px 10px;
+      font-size:.68rem;
+      font-weight:800;
+      backdrop-filter:blur(8px);
     }
 
-    .example-card h4{
-      font-size:1.1rem;
+    .card-body{
+      padding:19px 19px 18px;
     }
 
-    .example-card p{
-      color:#666;
+    .category{
+      color:var(--gold);
+      font-size:.69rem;
+      font-weight:800;
+      letter-spacing:1.2px;
+      margin-bottom:4px;
+    }
+
+    .card-body h3{
+      color:var(--burgundy);
+      font-family:"Playfair Display","Cairo",serif;
+      font-size:1.32rem;
+      margin-bottom:5px;
+    }
+
+    .card-body p{
+      color:var(--muted);
+      font-size:.79rem;
       line-height:1.8;
+      min-height:45px;
+    }
+
+    .card-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-top:15px;
+      padding-top:14px;
+      border-top:1px solid rgba(75,23,36,.08);
     }
 
     .price{
+      color:var(--burgundy);
+      font-size:.83rem;
+      font-weight:800;
+    }
+
+    .price del{
+      color:#a9a0a3;
+      font-weight:500;
+      margin-left:5px;
+    }
+
+    .visit{
+      color:var(--burgundy);
+      font-size:.77rem;
+      font-weight:800;
+      transition:.2s;
+    }
+
+    .design-card:hover .visit{
+      color:var(--gold);
+    }
+
+    /* FEATURED TOP SELLER */
+    .design-card.featured{
+      grid-column:1 / -1;
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+      min-height:520px;
+      border-color:rgba(185,151,91,.42);
+      box-shadow:0 24px 70px rgba(48,19,28,.14);
+    }
+
+    .design-card.featured .preview{
+      height:100%;
+      aspect-ratio:auto;
+      min-height:520px;
+    }
+
+    .design-card.featured .card-body{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:42px;
+      background:linear-gradient(135deg,#fffdf9,#f8f3eb);
+    }
+
+    .design-card.featured .card-body h3{
+      font-size:clamp(1.8rem,3vw,2.6rem);
+      margin-bottom:10px;
+    }
+
+    .design-card.featured .card-body p{
+      font-size:.95rem;
+      line-height:2;
+      max-width:430px;
+    }
+
+    .featured-label{
+      display:inline-flex;
+      width:max-content;
+      align-items:center;
+      gap:7px;
+      background:var(--burgundy);
+      color:#fff;
+      border-radius:999px;
+      padding:7px 12px;
+      font-size:.7rem;
+      font-weight:800;
+      margin-bottom:15px;
+      box-shadow:0 8px 20px rgba(75,23,36,.18);
+    }
+
+    .featured-label::before{
+      content:"★";
+      color:var(--gold-light);
+    }
+
+    .design-card.featured .price{
       font-size:1rem;
-      font-weight:700;
-      color:#ff2f7d;
     }
 
-    .old-price{
-      color:#999;
-      text-decoration:line-through;
-      margin-left:8px;
+    .design-card.featured .visit{
+      font-size:.82rem;
     }
 
-    .example-link{
-      color:#ff2f7d;
-      font-weight:700;
-      margin-top:auto;
+
+    /* ORDER CTA */
+    .order-section{
+      padding:15px 0 100px;
     }
 
-    .footer{
-      padding:30px 0;
+    .order-box{
+      position:relative;
+      overflow:hidden;
+      background:var(--burgundy);
+      color:#fff;
+      border-radius:28px;
+      padding:58px 30px;
       text-align:center;
-      border-top:1px solid rgba(0,0,0,.06);
-      margin-top:40px;
+      box-shadow:0 24px 65px rgba(75,23,36,.18);
     }
 
-    /* Mobile Responsive Optimizations */
+    .order-box::before{
+      content:"";
+      position:absolute;
+      width:300px;
+      height:300px;
+      border:1px solid rgba(216,189,132,.22);
+      border-radius:50%;
+      left:-150px;
+      top:-170px;
+    }
+
+    .order-box::after{
+      content:"";
+      position:absolute;
+      width:230px;
+      height:230px;
+      border:1px solid rgba(216,189,132,.18);
+      border-radius:50%;
+      right:-120px;
+      bottom:-130px;
+    }
+
+    .order-box > *{position:relative;z-index:1}
+
+    .order-box .section-label{
+      color:var(--gold-light);
+    }
+
+    .order-box h2{
+      font-family:"Playfair Display","Cairo",serif;
+      font-size:clamp(2rem,4vw,3rem);
+      margin-bottom:10px;
+    }
+
+    .order-box p{
+      max-width:600px;
+      margin:0 auto;
+      color:rgba(255,255,255,.72);
+      font-size:.9rem;
+    }
+
+    .order-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+
+    .order-actions a{
+      background:#fff;
+      color:var(--burgundy);
+      min-width:140px;
+    }
+
+    .order-actions a:hover{
+      background:var(--cream);
+      transform:translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer{
+      padding:28px 0 34px;
+      border-top:1px solid var(--line);
+      color:#8b7d81;
+      text-align:center;
+      font-size:.76rem;
+    }
+
+    footer strong{color:var(--burgundy)}
+
+    /* MOBILE */
     @media(max-width:900px){
-      .examples-grid{
-        grid-template-columns:1fr 1fr;
-      }
+      .nav{min-height:76px}
+      .nav-links{display:none}
+      .design-grid{grid-template-columns:repeat(2,1fr)}
+      .nav-side{margin-right:auto}
+      .trust-inner{gap:20px 30px;padding:18px 0}
     }
 
-    @media(max-width:680px){
-      .nav {
-        flex-direction: column;
-        padding: 15px 0;
-        gap: 12px;
+    @media(max-width:640px){
+      .container{width:min(94%,1180px)}
+
+      .header{
+        position:relative;
       }
 
-      .nav-right-side {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
+      .nav{
+        padding:12px 0;
+        gap:12px;
       }
 
-      .examples-grid{
-        grid-template-columns:1fr;
+      .brand-copy span{display:none}
+      .logo{width:43px;height:43px}
+
+      .nav-side{width:auto}
+      .nav-cta{
+        padding:9px 12px;
+        font-size:.72rem;
       }
 
-      .hero {
-        padding: 40px 0;
+      .hero{
+        padding:70px 0 62px;
       }
 
-      .btn-wedding {
-        width: 100%;
-        justify-content: center;
+      .hero h1{
+        font-size:2.45rem;
+      }
+
+      .hero p{
+        font-size:.88rem;
+        line-height:1.9;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        width:100%;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .trust-inner{
+        flex-direction:column;
+        gap:8px;
+        padding:20px 0;
+        font-size:.76rem;
+      }
+
+      .section{
+        padding:65px 0;
+      }
+
+      .section-head{
+        margin-bottom:28px;
+      }
+
+      .design-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:12px;
+      }
+      .design-card.featured{
+        grid-column:1 / -1;
+        display:block;
+        min-height:0;
+      }
+
+      .design-card.featured .preview{
+        min-height:0;
+        height:auto;
+        aspect-ratio:3/4;
+      }
+
+      .design-card.featured .card-body{
+        padding:18px;
+      }
+
+      .design-card.featured .card-body h3{
+        font-size:1.35rem;
+      }
+
+      .design-card.featured .card-body p{
+        font-size:.76rem;
+      }
+
+
+      .preview{
+        aspect-ratio:3/4;
+      }
+
+      .card-body{
+        padding:12px;
+      }
+
+      .card-body h3{
+        font-size:1rem;
+      }
+
+      .card-body p{
+        font-size:.68rem;
+        line-height:1.65;
+        min-height:auto;
+      }
+
+      .card-footer{
+        display:block;
+        margin-top:10px;
+        padding-top:10px;
+      }
+
+      .price{
+        font-size:.68rem;
+        margin-bottom:7px;
+      }
+
+      .visit{
+        font-size:.67rem;
+      }
+
+      .order-section{
+        padding-bottom:70px;
+      }
+
+      .order-box{
+        padding:46px 20px;
+        border-radius:22px;
+      }
+
+      .order-actions{
+        flex-direction:column;
+      }
+
+      .order-actions a{
+        width:100%;
       }
     }
   </style>
@@ -324,214 +786,268 @@
 <header class="header">
   <div class="container nav">
 
-    <a href="#" class="brand">
+    <a href="#home" class="brand" aria-label="click_to_fall">
       <div class="logo">
         <img src="logo.jpg" alt="click_to_fall logo">
       </div>
-
-      <div class="brand-text">
-        <h1>click_to_fall</h1>
-        <p>مواقع متميزة لللحظات الخاصة</p>
+      <div class="brand-copy">
+        <strong>click_to_fall</strong>
+        <span>Digital Experiences • Made with Emotion</span>
       </div>
     </a>
 
-    <div class="nav-right-side">
+    <div class="nav-side">
       <nav class="nav-links">
         <a href="#home">الرئيسية</a>
-        <a href="#design">التصاميم</a>
-        <a href="#order">الطلب</a>
+        <a href="#designs">التصاميم</a>
+        <a href="#order">اطلب الآن</a>
       </nav>
 
-      <!-- زر دعوات الأفراح المباشر -->
-      <a href="https://click-to-fall.github.io/Wedding-designs" target="_blank" class="btn-wedding">
-        💍 دعوات الأفراح
+      <a class="nav-cta" href="https://click-to-fall.github.io/Wedding-designs/" target="_blank" rel="noopener">
+        دعوات الأفراح
       </a>
     </div>
 
   </div>
 </header>
 
-<section class="hero" id="home">
-  <div class="container">
+<main>
 
-    <span class="badge">مبتكر • رومانسي • لا يُنسى</span>
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="eyebrow">PREMIUM DIGITAL EXPERIENCES</div>
 
-    <h2>
-      حوّل لحظاتك السعيدة إلى
-      <span>هدية موقع إلكتروني</span>
-    </h2>
+      <h1>
+        مش مجرد موقع...
+        <br>
+        <em>دي لحظة تستحق تتعاش.</em>
+      </h1>
 
-    <p>
-      موقع click_to_fall يصمم لك مواقع مخصصة لأعياد الميلاد، الذكريات، هدايا الحب ودعوات الزفاف.
-    </p>
+      <p>
+        نصمم مواقع رقمية راقية تحوّل الحب، الذكريات والمناسبات الخاصة
+        إلى تجربة تفاعلية تفضل فاكرها.
+      </p>
 
-    <div class="hero-actions">
-      <a href="#design" class="btn">استعرض التصاميم الجاهزة</a>
-      <a href="https://click-to-fall.github.io/Wedding-designs" target="_blank" class="btn btn-secondary">تصاميم دعوات الأفراح 💍</a>
+      <div class="hero-actions">
+        <a href="#designs" class="btn btn-primary">استعرض المجموعة</a>
+        <a href="https://click-to-fall.github.io/Wedding-designs/" target="_blank" rel="noopener" class="btn btn-outline">
+          مجموعة دعوات الأفراح
+        </a>
+      </div>
+
+      <div class="hero-note">تصميم مخصص • تجربة متجاوبة • جاهز للمشاركة</div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<section class="section" id="design">
-
-  <div class="container">
-
-    <div class="section-head">
-      <span class="small-tag">التصاميم</span>
-      <h3>اختر تصميمك المفضّل</h3>
-      <p>تصفح المجموعة واختر ما يناسب مناسبتك.</p>
+  <div class="trust">
+    <div class="container trust-inner">
+      <div class="trust-item"><span class="trust-dot"></span> تصميمات أصلية</div>
+      <div class="trust-item"><span class="trust-dot"></span> Mobile Responsive</div>
+      <div class="trust-item"><span class="trust-dot"></span> تجربة تفاعلية</div>
+      <div class="trust-item"><span class="trust-dot"></span> رابط خاص لمناسبتك</div>
     </div>
-
-    <div class="examples-grid">
-
-      <a class="example-card" href="https://click-to-fall.github.io/Memories-design-5/" target="_blank">
-        <span class="example-badge">الأكثر مبيعاً</span>
-        <h4>تصميم الذكريات</h4>
-        <p>عداد تنازلي، صور مع تعليقات مخصصة.</p>
-
-        <div class="price">
-          <span class="old-price">250 ج.م</span>
-          150 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Birthday-design-1/" target="_blank">
-        <span class="example-badge">تصميم 1</span>
-        <h4>عيد ميلاد وردي</h4>
-        <p>موقع مفاجأة عيد ميلاد بلون وردي مع صور ورسائل رومانسية.</p>
-
-        <div class="price">
-          <span class="old-price">300 ج.م</span>
-          240 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Birthday-design-3/" target="_blank">
-        <span class="example-badge">تصميم 2</span>
-        <h4>عيد ميلاد تفاعلي</h4>
-        <p>صفحة عيد ميلاد تفاعلية تحتوي على موسيقى ومشاهد وهدايا.</p>
-
-        <div class="price">
-          <span class="old-price">300 ج.م</span>
-          240 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Anniversary-design-1/" target="_blank">
-        <span class="example-badge">تصميم 3</span>
-        <h4>قصة حب باسبورد</h4>
-        <p>موقع قصة حب محمي بكلمة سر مع قسم للذكريات.</p>
-
-        <div class="price">
-          <span class="old-price">300 ج.م</span>
-          240 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Anniversary-design-2/" target="_blank">
-        <span class="example-badge">تصميم 4</span>
-        <h4>قصة حب ورسائل</h4>
-        <p>موقع قصة حب يحتوي على ذكريات، صور ونصوص رومانسية.</p>
-
-        <div class="price">
-          <span class="old-price">300 ج.م</span>
-          240 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Anniversary-design-3/" target="_blank">
-        <span class="example-badge">تصميم 5</span>
-        <h4>ذكريات خاصة</h4>
-        <p>موقع قصة حب أنيق محمي بكلمة سر لحفظ الذكريات.</p>
-
-        <div class="price">
-          <span class="old-price">300 ج.م</span>
-          240 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Memories-design-2/" target="_blank">
-        <span class="example-badge">تصميم 6</span>
-        <h4>قطار الذكريات</h4>
-        <p>عرض مميز وساحر لذكرياتكم على هيئة قطار ذكريات.</p>
-
-        <div class="price">
-          <span class="old-price">460 ج.م</span>
-          300 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Memories-design-1/" target="_blank">
-        <span class="example-badge">تصميم 7</span>
-        <h4>ذكريات الدب</h4>
-        <p>تصميم لطيف ورومانسي بطابع الدب للتعبير عن مشاعرك.</p>
-
-        <div class="price">
-          <span class="old-price">300 ج.م</span>
-          240 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-      <a class="example-card" href="https://click-to-fall.github.io/Memories-design-3/" target="_blank">
-        <span class="example-badge">تصميم 8</span>
-        <h4>كتاب الذكريات</h4>
-        <p>تصفح ذكرياتكم معاً وكأنها صفحات داخل كتاب خالي من النسيان.</p>
-
-        <div class="price">
-          <span class="old-price">300 ج.م</span>
-          240 ج.م
-        </div>
-
-        <span class="example-link">افتح الموقع ←</span>
-      </a>
-
-    </div>
-
   </div>
 
-</section>
+  <section class="section" id="designs">
+    <div class="container">
 
-<section class="section" id="order">
-  <div class="container">
+      <div class="section-head">
+        <div class="section-label">THE COLLECTION</div>
+        <h2>اختار التجربة اللي شبه مناسبتك</h2>
+        <p>كل تصميم معمول علشان يحوّل المناسبة من مجرد ذكرى إلى تجربة رقمية مميزة.</p>
+      </div>
 
-    <div class="section-head">
-      <span class="small-tag">الطلب</span>
-      <h3>تواصل معنا عبر إنستغرام أو تيك توك للطلب</h3>
+      <div class="design-grid">
+        <a class="design-card featured" href="https://click-to-fall.github.io/Memories-design-3/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Memories-design-3.jpeg" alt="Memories Design 3" loading="lazy">
+            <span class="preview-badge">MEMORIES</span>
+          </div>
+          <div class="card-body">
+            <span class="featured-label">TOP SELLER</span>
+            <div class="category">MEMORIES • TOP SELLER</div>
+            <h3>Memories Design 03</h3>
+            <p>تجربة تشبه كتاب الذكريات، تجمع اللحظات في شكل راقٍ.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 150 ج.م</div>
+              <span class="visit">الأكثر مبيعًا • استكشف ←</span>
+            </div>
+          </div>
+        </a>
+
+
+        <a class="design-card" href="https://click-to-fall.github.io/Anniversary-design-1/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Anniversary-design-1.jpeg" alt="Anniversary Design 1" loading="lazy">
+            <span class="preview-badge">ANNIVERSARY</span>
+          </div>
+          <div class="card-body">
+            <div class="category">LOVE & ANNIVERSARY</div>
+            <h3>Anniversary Design 01</h3>
+            <p>تجربة رومانسية أنيقة لعرض قصتكم وذكرياتكم بشكل مختلف.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Anniversary-design-2/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Anniversary-design-2.jpeg" alt="Anniversary Design 2" loading="lazy">
+            <span class="preview-badge">ANNIVERSARY</span>
+          </div>
+          <div class="card-body">
+            <div class="category">LOVE & ANNIVERSARY</div>
+            <h3>Anniversary Design 02</h3>
+            <p>موقع مميز يجمع الصور والرسائل واللحظات في تجربة واحدة.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Anniversary-design-3/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Anniversary-design-3.jpeg" alt="Anniversary Design 3" loading="lazy">
+            <span class="preview-badge">ANNIVERSARY</span>
+          </div>
+          <div class="card-body">
+            <div class="category">LOVE & ANNIVERSARY</div>
+            <h3>Anniversary Design 03</h3>
+            <p>ستايل كلاسيك وهادئ لذكرى تستحق الاحتفال بها.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Apologize-design-1/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Apologize-design-1.jpeg" alt="Apologize Design 1" loading="lazy">
+            <span class="preview-badge">APOLOGY</span>
+          </div>
+          <div class="card-body">
+            <div class="category">SPECIAL MESSAGE</div>
+            <h3>Apologize Design 01</h3>
+            <p>طريقة مختلفة وراقية لتحويل رسالة اعتذار إلى لحظة مؤثرة.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Birthay-design-1/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Birthay-design-1.jpeg" alt="Birthay Design 1" loading="lazy">
+            <span class="preview-badge">BIRTHDAY</span>
+          </div>
+          <div class="card-body">
+            <div class="category">BIRTHDAY</div>
+            <h3>Birthday Design 01</h3>
+            <p>مفاجأة عيد ميلاد رقمية تجمع الصور والكلام الحلو في صفحة واحدة.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Birthay-design-2/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Birthay-design-2.jpeg" alt="Birthay Design 2" loading="lazy">
+            <span class="preview-badge">BIRTHDAY</span>
+          </div>
+          <div class="card-body">
+            <div class="category">BIRTHDAY</div>
+            <h3>Birthday Design 02</h3>
+            <p>تصميم احتفالي تفاعلي مناسب للمفاجآت والرسائل الشخصية.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Love-Book-Design-1/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Love-Book-Design-1.jpeg" alt="Love Book Design 1" loading="lazy">
+            <span class="preview-badge">LOVE BOOK</span>
+          </div>
+          <div class="card-body">
+            <div class="category">LOVE STORY</div>
+            <h3>Love Book Design 01</h3>
+            <p>كتاب حب رقمي يحوّل أجمل تفاصيل علاقتكم إلى صفحات تفاعلية.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Memories-design-1/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Memories-design-1.jpeg" alt="Memories Design 1" loading="lazy">
+            <span class="preview-badge">MEMORIES</span>
+          </div>
+          <div class="card-body">
+            <div class="category">MEMORIES</div>
+            <h3>Memories Design 01</h3>
+            <p>مساحة رقمية أنيقة لحفظ الصور والذكريات بطريقة عاطفية.</p>
+            <div class="card-footer">
+              <div class="price"><del>300 ج.م</del> 240 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="design-card" href="https://click-to-fall.github.io/Memories-design-2/" target="_blank" rel="noopener">
+          <div class="preview">
+            <img src="Memories-design-2.jpeg" alt="Memories Design 2" loading="lazy">
+            <span class="preview-badge">MEMORIES</span>
+          </div>
+          <div class="card-body">
+            <div class="category">MEMORIES</div>
+            <h3>Memories Design 02</h3>
+            <p>رحلة ذكريات مصممة بشكل مختلف لتخلي كل لحظة لها مكان.</p>
+            <div class="card-footer">
+              <div class="price"><del>460 ج.م</del> 300 ج.م</div>
+              <span class="visit">استكشف التصميم ←</span>
+            </div>
+          </div>
+        </a>
+
+
+
+      </div>
     </div>
+  </section>
 
-    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-      <a class="btn" href="https://www.instagram.com/ctf.eg" target="_blank">
-        Instagram
-      </a>
+  <section class="order-section" id="order">
+    <div class="container">
+      <div class="order-box">
+        <div class="section-label">LET'S CREATE SOMETHING SPECIAL</div>
+        <h2>جاهز تخلي مناسبتك مختلفة؟</h2>
+        <p>
+          اختار التصميم اللي عجبك، وابعتلنا تفاصيلك. هنحوّله لتجربة رقمية باسمك وصورك ورسائلك.
+        </p>
 
-      <a class="btn" href="https://www.tiktok.com/@ctf.eg" target="_blank">
-        TikTok
-      </a>
+        <div class="order-actions">
+          <a class="btn" href="https://www.instagram.com/ctf.eg" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="https://www.tiktok.com/@ctf.eg" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
+</main>
 
-<footer class="footer">
+<footer>
   <div class="container">
-    <p>© 2026 click_to_fall صنع للحظات الخاصة.</p>
+    <p>© 2026 <strong>click_to_fall</strong> — Crafted for moments that matter.</p>
   </div>
 </footer>
 
